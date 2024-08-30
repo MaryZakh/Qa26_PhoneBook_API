@@ -15,10 +15,11 @@ public class RegistrationTestsOkhttp {
     public static final MediaType JSON = MediaType.get("application/json;charset=utf-8");
     OkHttpClient client = new OkHttpClient();
 
-    
+
     @Test
     public void registrationSuccess() throws IOException {
         int i = (int)(System.currentTimeMillis()/1000)%3600;
+
         AuthRequestDTO auth = AuthRequestDTO.builder().username("mara"+i+"@gmail.com").password("Mmar123456$").build();
 
         RequestBody requestBody = RequestBody.create(gson.toJson(auth),JSON);
@@ -39,7 +40,7 @@ public class RegistrationTestsOkhttp {
     @Test
 
     public void registrationTestWrongEmail() throws IOException {
-        int i = (int) ((System.currentTimeMillis()/1000)%3600);
+
         AuthRequestDTO authDTO = AuthRequestDTO.builder()
                 .username("margagmail.com")
                 .password("Mmar123456$")
@@ -61,7 +62,8 @@ public class RegistrationTestsOkhttp {
 
     @Test
     public void registrationTestWrongPassword() throws IOException {
-        int i = (int) ((System.currentTimeMillis()/1000)%3600);
+
+
         AuthRequestDTO authDTO = AuthRequestDTO.builder()
                 .username("mara@gmail.com")
                 .password("Mmar123")
